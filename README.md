@@ -15,3 +15,7 @@ something to be wrong with the atmosphere handshakring between client and server
 3) Run "java -jar target/repeatingZeros-0.0.1-SNAPSHOT.jar"
 
 Dropwizard will listen on "http://localhost:8080". Use the main-html page to connect to the server and observe logs on both client and server side.
+
+## Atmosphere bug - screenshot, server side
+
+![Bug screenshot](https://github.com/CPBach/Atmosphere-RepeatedZerosBug/blob/master/atmosphereBug.png "Optional title")
