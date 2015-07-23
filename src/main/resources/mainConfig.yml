@@ -1,0 +1,5 @@
+server:
+  rootPath: /someOtherPath/* # Default value is /*
+  applicationConnectors:
+    - type: http
+      port: 8080

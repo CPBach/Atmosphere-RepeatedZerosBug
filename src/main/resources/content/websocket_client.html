@@ -1,0 +1,50 @@
+<html>
+<head>
+</head>
+<body>
+<button onclick="connectToServer()">Connect to server</button>
+<button onclick="sendMessageToServer()">SendMessage</button>
+<script src="http://code.jquery.com/jquery-2.0.3.js"></script>
+<script src="jquery.atmosphere.js"></script>
+
+<script>
+var websocket_url = "http://localhost:8080/chat";
+var socket = $.atmosphere;
+var request = new $.atmosphere.AtmosphereRequest();
+request.url = websocket_url;
+request.contentType = "applicaton/json";
+request.transport = 'websocket';
+request.fallbackTransport = 'long-polling';
+
+var subsocket;
+request.onOpen = function(response) {
+        console.log("Connected");
+};
+
+request.onError = function(response) {
+        console.log("Error");
+};
+
+request.onReconnect = function (request, response) {
+        console.log("Reconnecting")
+};
+
+request.onMessage = function (response) {
+        var message = response.responseBody;
+        console.log("Message received: " + message);
+		
+    };
+	
+var subSocket;
+function sendMessageToServer(){
+	console.log("Sending message to server!");
+	/* Send some random json stuff to the server*/
+	subSocket.push("{\"userId\": \"abc\", \"scope\": \"asdf\", \"msgType\": \"nonsense\", \"message\": \"asds\"}");
+}
+function connectToServer(){
+	 subSocket = socket.subscribe(request);
+}
+</script>
+
+</body>
+</html>
